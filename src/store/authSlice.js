@@ -5,7 +5,7 @@ const initialState = {
   userData: null,
 };
 
-const authSlice = createSlice({
+export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
@@ -21,8 +21,10 @@ const authSlice = createSlice({
   },
 });
 
+const authReducer = authSlice.reducer;
+
 // individual export so any file can use these functions
-export const { login, logout } = authSlice.reducers;
+export const { login, logout } = authSlice.actions;
 
 // as docs said we are not gonna export reducers, we need to export reducer
-export default authSlice.reducer;
+export default authReducer;

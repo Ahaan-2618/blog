@@ -7,7 +7,7 @@ import store from "./store/store.js";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Auth from "./components/Auth.jsx";
+import Protected from "./components/AuthLayout.jsx";
 import Signup from "./pages/Signup";
 import AllPost from "./pages/AllPost";
 import AddPost from "./pages/AddPost";
@@ -26,49 +26,49 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: (
-          <Auth authentication={false}>
+          <Protected authentication={false}>
             <Login />
-          </Auth>
+          </Protected>
         ),
       },
       {
         path: "/signup",
         element: (
-          <Auth authentication={false}>
+          <Protected authentication={false}>
             <Signup />
-          </Auth>
+          </Protected>
         ),
       },
       {
         path: "/all-posts",
         element: (
-          <Auth authentication>
+          <Protected authentication>
             <AllPost />
-          </Auth>
+          </Protected>
         ),
       },
       {
         path: "/add-post",
         element: (
-          <Auth authentication>
+          <Protected authentication>
             <AddPost />
-          </Auth>
+          </Protected>
         ),
       },
       {
         path: "/edit-post/:slug",
         element: (
-          <Auth authentication>
+          <Protected authentication>
             <EditPost />
-          </Auth>
+          </Protected>
         ),
       },
       {
         path: "/post/:slug",
         element: (
-          <Auth authentication={false}>
+          <Protected authentication={false}>
             <Post />
-          </Auth>
+          </Protected>
         ),
       },
     ],

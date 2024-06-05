@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-const Auth = ({ childern, authentication = true }) => {
-  const authStatus = useSelector((state) => state.auth.status);
+// eslint-disable-next-line react/prop-types
+const Protected = ({ children, authentication = true }) => {
+  const authStatus = useSelector((state) => state.authReducer.status);
+
   const navigate = useNavigate();
   const [loader, setLoader] = useState(true);
 
@@ -14,8 +17,9 @@ const Auth = ({ childern, authentication = true }) => {
       navigate("/");
     }
     setLoader(false);
-  }, [authentication, authStatus, navigate]);
-  return loader ? null : <>{childern}</>;
+  }, [authStatus, authentication, navigate]);
+
+  return loader ? null : <>{children}</>;
 };
 
-export default Auth;
+export default Protected;
