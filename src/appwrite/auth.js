@@ -1,6 +1,9 @@
 import conf from "../conf/conf";
 import { Client, Account, ID } from "appwrite";
 
+console.log("Sample", conf);
+
+console.log("Data", import.meta.env);
 export class AuthService {
   client = new Client();
   account;

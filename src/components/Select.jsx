@@ -1,10 +1,12 @@
+/* eslint-disable react/prop-types */
 import { forwardRef, useId } from "react";
 
 const FRSelect = forwardRef(function select(
   { options, label, className = "", ...props },
   ref
 ) {
-  const id = useId;
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const id = useId();
   return (
     <div className="w-full">
       {label && (

@@ -1,10 +1,11 @@
 import { forwardRef, useId } from "react";
 
 const FRInput = forwardRef(function Input(
+  // eslint-disable-next-line react/prop-types
   { label, type = "text", className = "", ...props },
   ref
 ) {
-  const id = useId;
+  const id = useId();
   return (
     <div>
       {label && (

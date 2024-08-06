@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../Logo";
 import Container from "../container/Container";
-import LogoutBtn from "./logoutBtn";
+import LogoutBtn from "./LogoutBtn";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -29,8 +29,8 @@ const Header = () => {
       active: authStatus,
     },
     {
-      name: "Add Posts",
-      slug: "/add-posts",
+      name: "Add Post",
+      slug: "/add-post",
       active: authStatus,
     },
   ];
